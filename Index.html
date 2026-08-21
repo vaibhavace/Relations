@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning 🌅</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fff3c4, #ffd6a5, #ffb4a2);
+    color: #4a2815;
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: #ffd43b;
+    border-radius: 50%;
+    top: 8%;
+    right: 10%;
+    box-shadow: 0 0 80px #ffb703;
+    opacity: .8;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.small {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(60px, 12vw, 120px);
+    font-family: cursive;
+    color: #6b3216;
+    line-height: .95;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin: 25px 0;
+}
+
+.card {
+    background: rgba(255,255,255,.75);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 35px;
+    margin-top: 30px;
+    box-shadow: 0 15px 40px rgba(100,50,0,.15);
+}
+
+.message {
+    font-size: 25px;
+    line-height: 1.5;
+    min-height: 80px;
+}
+
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    margin: 10px 5px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.surprise {
+    background: #ff7b54;
+    color: white;
+}
+
+.song {
+    background: #6c63ff;
+    color: white;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+#songName {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .7;
+}
+
+.heart {
+    position: fixed;
+    font-size: 25px;
+    animation: floatUp 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.quote {
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    opacity: .7;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="sun"></div>
+
+    <div class="content">
+
+        <div class="small">☀️ A LITTLE MORNING MAGIC FOR YOU</div>
+
+        <h1>Good<br>Morning! ❤️</h1>
+
+        <p class="subtitle">
+            New day. New energy. New reasons to smile. ✨
+        </p>
+
+        <div class="card">
+
+            <div class="message" id="message">
+                I hope your morning starts with a smile
+                and your entire day gives you reasons to keep it. ❤️
+            </div>
+
+            <button class="surprise" onclick="surpriseMe()">
+                🎁 Surprise Me
+            </button>
+
+            <button class="song" onclick="playRandomSong()">
+                🎵 Play Random Song
+            </button>
+
+            <button class="whatsapp" onclick="sendWish()">
+                💌 Send This Wish
+            </button>
+
+            <div id="songName">
+                🎶 No song playing
+            </div>
+
+            <div class="quote">
+                "Every morning is another chance to make
+                something beautiful happen." 🌻
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Made to make someone's morning a little brighter ☀️❤️
+    </footer>
+
+</section>
+
+
+<script>
+
+/* ---------------------------
+   RANDOM GOOD MORNING MESSAGES
+---------------------------- */
+
+const messages = [
+
+"Good morning, sunshine! ☀️ I hope today brings you unexpected reasons to smile. ❤️",
+
+"Rise and shine! 🌅 Someone out there is hoping your day is as beautiful as your smile. 😊",
+
+"Good morning! 🌸 May your coffee be strong, your mood be happy, and your day be amazing!",
+
+"Here's your little reminder: you are someone's favourite reason to smile. ❤️ Good morning!",
+
+"Wake up! ☀️ Today has something beautiful waiting for you. Go find it! ✨",
+
+"Good morning! 💕 Sending you a little happiness to start your day.",
+
+"May your morning be peaceful, your afternoon productive and your evening unforgettable. 🌷",
+
+"Good morning, beautiful soul! 🌻 Don't forget to smile today.",
+
+"Today's mission: Smile more, worry less and enjoy every little moment. ❤️",
+
+"Good morning! 🌅 If nobody has told you yet — you're going to have an amazing day!"
+];
+
+
+/* ---------------------------
+   SURPRISE BUTTON
+---------------------------- */
+
+function surpriseMe() {
+
+    const randomIndex =
+        Math.floor(Math.random() * messages.length);
+
+    document.getElementById("message").innerText =
+        messages[randomIndex];
+
+    createHearts();
+
+}
+
+
+/* ---------------------------
+   FLOATING HEARTS
+---------------------------- */
+
+function createHearts() {
+
+    for(let i = 0; i < 15; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerText =
+            ["❤️","💖","💕","✨","🌸","☀️"]
+            [Math.floor(Math.random() * 6)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.bottom = "-30px";
+
+        heart.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+}
+
+
+/* ---------------------------
+   SIMPLE RANDOM SONGS
+   USING WEB AUDIO API
+---------------------------- */
+
+let audioContext;
+let currentSong = null;
+
+const songs = [
+
+    {
+        name: "☀️ Morning Sunshine",
+        notes: [261,329,392,523,392,329,261]
+    },
+
+    {
+        name: "🌸 Happy Morning",
+        notes: [294,330,392,440,392,330,294]
+    },
+
+    {
+        name: "✨ Beautiful Day",
+        notes: [262,330,392,494,392,330,262]
+    },
+
+    {
+        name: "💕 Sweet Morning",
+        notes: [330,392,440,523,440,392,330]
+    }
+
+];
+
+
+function playRandomSong() {
+
+    if(audioContext) {
+        audioContext.close();
+    }
+
+    audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+    const song =
+        songs[Math.floor(Math.random() * songs.length)];
+
+    document.getElementById("songName").innerText =
+        "🎵 Playing: " + song.name;
+
+    let time = audioContext.currentTime;
+
+    song.notes.forEach((frequency, index) => {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            frequency;
+
+        oscillator.connect(gain);
+
+        gain.connect(audioContext.destination);
+
+        gain.gain.setValueAtTime(
+            0,
+            time + index * 0.35
+        );
+
+        gain.gain.linearRampToValueAtTime(
+            0.15,
+            time + index * 0.35 + 0.05
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            time + index * 0.35 + 0.3
+        );
+
+        oscillator.start(
+            time + index * 0.35
+        );
+
+        oscillator.stop(
+            time + index * 0.35 + 0.3
+        );
+
+    });
+
+}
+
+
+/* ---------------------------
+   WHATSAPP SHARE
+---------------------------- */
+
+function sendWish() {
+
+    const message =
+        document.getElementById("message").innerText;
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            "☀️ Good Morning ❤️\n\n" +
+            message
+        );
+
+    window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+</html>
