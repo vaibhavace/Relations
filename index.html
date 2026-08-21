@@ -1,1 +1,1931 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Good Morning 🌅</title>
+
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff3c4,
+            #ffd6a5,
+            #ffb4a2
+        );
+
+    color: #4a2815;
+
+    overflow-x: hidden;
+
+    transition:
+        background 0.8s ease;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   SUN
+========================================= */
+
+.sun {
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    background: #ffd43b;
+
+    border-radius: 50%;
+
+    top: 8%;
+
+    right: 10%;
+
+    box-shadow:
+        0 0 80px #ffb703;
+
+    opacity: .8;
+
+    animation:
+        sunPulse 4s infinite alternate;
+}
+
+
+@keyframes sunPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+
+    width: 100%;
+}
+
+
+.small {
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+h1 {
+
+    font-size:
+        clamp(60px, 12vw, 120px);
+
+    font-family: cursive;
+
+    color: #6b3216;
+
+    line-height: .95;
+}
+
+
+.subtitle {
+
+    font-size: 24px;
+
+    margin: 25px 0;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.card {
+
+    background:
+        rgba(255,255,255,.78);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,50,0,.15);
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================
+   MAIN MESSAGE
+========================================= */
+
+.message {
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    min-height: 80px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 15px 25px;
+
+    margin: 10px 5px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+
+.surprise {
+
+    background: #ff7b54;
+
+    color: white;
+}
+
+
+.song {
+
+    background: #6c63ff;
+
+    color: white;
+}
+
+
+.mood {
+
+    background: #ff9f43;
+
+    color: white;
+}
+
+
+/* =========================================
+   MUSIC PLAYER
+========================================= */
+
+.musicPlayer {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    border-radius: 20px;
+
+    animation:
+        fadeIn .5s ease;
+}
+
+
+.musicTitle {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+
+#audioPlayer {
+
+    width: 100%;
+
+    max-width: 500px;
+}
+
+
+#timer {
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #6c63ff;
+}
+
+
+.musicNote {
+
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    opacity: .65;
+}
+
+
+/* =========================================
+   MOOD BOX
+========================================= */
+
+.moodBox {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    animation:
+        pop .4s ease;
+}
+
+
+.moodBox h2 {
+
+    margin-bottom: 15px;
+
+    color: #6b3216;
+}
+
+
+.moodButtons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+
+.moodButtons button {
+
+    background: white;
+
+    color: #4a2815;
+
+    border:
+        2px solid #ffd6a5;
+
+    font-size: 15px;
+
+    padding: 12px 18px;
+}
+
+
+.moodResult {
+
+    margin-top: 20px;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+}
+
+
+.moodEmoji {
+
+    font-size: 60px;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    animation:
+        bounce .8s infinite alternate;
+}
+
+
+/* =========================================
+   SURPRISE LOADING SCREEN
+========================================= */
+
+.surpriseOverlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        rgba(255,243,196,.96);
+
+    backdrop-filter:
+        blur(10px);
+
+    animation:
+        fadeIn .3s ease;
+}
+
+
+.loadingEmoji {
+
+    font-size: 90px;
+
+    animation:
+        surpriseShake .6s
+        infinite alternate;
+}
+
+
+.loadingText {
+
+    margin-top: 20px;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #6b3216;
+}
+
+
+@keyframes surpriseShake {
+
+    from {
+
+        transform:
+            rotate(-10deg)
+            scale(.9);
+    }
+
+    to {
+
+        transform:
+            rotate(10deg)
+            scale(1.1);
+    }
+}
+
+
+/* =========================================
+   SURPRISE RESULT
+========================================= */
+
+.surpriseResult {
+
+    padding: 10px;
+
+    animation:
+        surpriseReveal .6s ease;
+}
+
+
+.bigSurpriseEmoji {
+
+    font-size: 75px;
+
+    margin-bottom: 10px;
+
+    animation:
+        bounce .8s infinite alternate;
+}
+
+
+.surpriseTitle {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #6b3216;
+
+    margin-bottom: 15px;
+}
+
+
+.surpriseText {
+
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    color: #4a2815;
+}
+
+
+.anotherButton {
+
+    background: #6c63ff;
+
+    color: white;
+
+    margin-top: 20px;
+
+    padding: 13px 22px;
+}
+
+
+@keyframes surpriseReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.5)
+            rotate(-5deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+.surprisePop {
+
+    animation:
+        cardPop .7s ease;
+}
+
+
+@keyframes cardPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.04)
+            rotate(.5deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   FLOATING EMOJIS
+========================================= */
+
+.floatingEmoji {
+
+    position: fixed;
+
+    font-size: 28px;
+
+    animation:
+        floatUp 3s linear forwards;
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+
+@keyframes floatUp {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(-100vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   GENERAL ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes pop {
+
+    from {
+
+        transform: scale(.7);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes bounce {
+
+    from {
+
+        transform:
+            translateY(0);
+    }
+
+    to {
+
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =========================================
+   MOOD BACKGROUNDS
+========================================= */
+
+body.happy {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff3c4,
+            #ffe082,
+            #ffb4a2
+        );
+}
+
+
+body.sad {
+
+    background:
+        linear-gradient(
+            180deg,
+            #dbeafe,
+            #bfdbfe,
+            #c4b5fd
+        );
+}
+
+
+body.excited {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fde68a,
+            #fb7185,
+            #f472b6
+        );
+}
+
+
+body.boring {
+
+    background:
+        linear-gradient(
+            180deg,
+            #e5e7eb,
+            #d1d5db,
+            #f3f4f6
+        );
+}
+
+
+body.tired {
+
+    background:
+        linear-gradient(
+            180deg,
+            #ddd6fe,
+            #c4b5fd,
+            #a5b4fc
+        );
+}
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote {
+
+    margin-top: 30px;
+
+    font-style: italic;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    opacity: .7;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px) {
+
+    .small {
+
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .subtitle {
+
+        font-size: 18px;
+    }
+
+
+    .card {
+
+        padding: 25px 15px;
+    }
+
+
+    .message {
+
+        font-size: 20px;
+    }
+
+
+    button {
+
+        width: 90%;
+    }
+
+
+    .sun {
+
+        width: 140px;
+
+        height: 140px;
+    }
+
+
+    .loadingEmoji {
+
+        font-size: 70px;
+    }
+
+
+    .loadingText {
+
+        font-size: 20px;
+    }
+
+
+    .surpriseTitle {
+
+        font-size: 24px;
+    }
+
+
+    .surpriseText {
+
+        font-size: 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="hero">
+
+
+<div class="sun"></div>
+
+
+<div class="content">
+
+
+<div class="small">
+
+☀️ A LITTLE MORNING MAGIC FOR YOU
+
+</div>
+
+
+<h1>
+
+Good<br>
+
+Morning! 🌅
+
+</h1>
+
+
+<p class="subtitle">
+
+New day. New energy.
+New reasons to smile. ✨
+
+</p>
+
+
+<div class="card">
+
+
+<!-- =====================================
+     MAIN MESSAGE
+===================================== -->
+
+<div
+    class="message"
+    id="message">
+
+Good morning! ☀️
+
+I hope your morning starts
+with a smile and your day
+turns out better than expected.
+
+Have an awesome day! 🌻
+
+</div>
+
+
+<!-- =====================================
+     MAIN BUTTONS
+===================================== -->
+
+<button
+    class="surprise"
+    onclick="surpriseMe()">
+
+🎁 What's Today's Surprise?
+
+</button>
+
+
+<button
+    class="song"
+    onclick="playRandomSong()">
+
+🎵 Play Morning Song
+
+</button>
+
+
+<button
+    class="mood"
+    onclick="showMoodBox()">
+
+😊 How's Your Mood?
+
+</button>
+
+
+<!-- =====================================
+     MUSIC PLAYER
+===================================== -->
+
+<div
+    class="musicPlayer"
+    id="musicPlayer">
+
+
+<div
+    class="musicTitle"
+    id="songName">
+
+🎶 No song selected
+
+</div>
+
+
+<audio
+    id="audioPlayer"
+    controls
+    preload="auto">
+
+</audio>
+
+
+<div id="timer">
+
+</div>
+
+
+<div class="musicNote">
+
+🎵 Your morning song will automatically
+stop after 15 seconds.
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================
+     MOOD BOX
+===================================== -->
+
+<div
+    class="moodBox"
+    id="moodBox">
+
+
+<h2>
+
+💭 Tell me...
+How's your mood today?
+
+</h2>
+
+
+<div class="moodButtons">
+
+
+<button
+    onclick="selectMood('happy')">
+
+😊 Happy
+
+</button>
+
+
+<button
+    onclick="selectMood('sad')">
+
+😔 Sad
+
+</button>
+
+
+<button
+    onclick="selectMood('excited')">
+
+🤩 Excited
+
+</button>
+
+
+<button
+    onclick="selectMood('boring')">
+
+🥱 Boring
+
+</button>
+
+
+<button
+    onclick="selectMood('tired')">
+
+😴 Tired
+
+</button>
+
+
+</div>
+
+
+<div
+    class="moodResult"
+    id="moodResult">
+
+</div>
+
+
+</div>
+
+
+<div class="quote">
+
+"Every morning is another chance
+to make something beautiful happen." 🌻
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+Made to make someone's morning
+a little brighter ☀️
+
+</footer>
+
+
+</section>
+
+
+
+<script>
+
+
+/* ==========================================
+   GOOD MORNING MESSAGES
+========================================== */
+
+const messages = [
+
+"Good morning! ☀️ I hope today brings you unexpected reasons to smile.",
+
+"Rise and shine! 🌅 Hope your day starts well and only gets better.",
+
+"Good morning! 🌸 May your coffee be strong, your mood be great and your day be amazing!",
+
+"Here's your little reminder: today could turn out to be a really good day. ✨",
+
+"Wake up! ☀️ There's a whole new day waiting for you. Go make it count!",
+
+"Good morning! 🌻 Sending some positive energy your way for the day ahead.",
+
+"May your morning be peaceful, your afternoon productive and your evening relaxing.",
+
+"Good morning! ☀️ Don't forget to smile and enjoy the little things today.",
+
+"Today's mission: Smile more, worry less and enjoy every little moment.",
+
+"Good morning! 🌅 Whatever today brings, you've got this!"
+
+];
+
+
+/* ==========================================
+   CREATIVE SURPRISES
+========================================== */
+
+const surprises = [
+
+{
+
+    title:
+    "🌞 Today's Mission",
+
+    emoji:
+    "🚀",
+
+    text:
+    "Your mission today is simple: " +
+    "make at least one person laugh. " +
+    "Bonus points if it's completely unexpected!"
+
+},
+
+{
+
+    title:
+    "🔮 Today's Prediction",
+
+    emoji:
+    "✨",
+
+    text:
+    "Prediction for today: " +
+    "something small is going to go better " +
+    "than you expected. Keep an eye out!"
+
+},
+
+{
+
+    title:
+    "🎯 Random Challenge",
+
+    emoji:
+    "😎",
+
+    text:
+    "Challenge accepted! " +
+    "Go through the next hour without complaining " +
+    "about anything. Let's see how long you last!"
+
+},
+
+{
+
+    title:
+    "🌻 Morning Reminder",
+
+    emoji:
+    "☀️",
+
+    text:
+    "You don't need to have everything figured out today. " +
+    "Just start with one good step."
+
+},
+
+{
+
+    title:
+    "😂 Important Announcement",
+
+    emoji:
+    "📢",
+
+    text:
+    "BREAKING NEWS: " +
+    "You have officially been selected to have " +
+    "a surprisingly good day today."
+
+},
+
+{
+
+    title:
+    "🎲 Lucky Moment",
+
+    emoji:
+    "🍀",
+
+    text:
+    "Your lucky emoji today is 🍀. " +
+    "Whenever something annoying happens, " +
+    "just remember: this was supposed to be your lucky day!"
+
+},
+
+{
+
+    title:
+    "☕ Today's Advice",
+
+    emoji:
+    "☕",
+
+    text:
+    "Drink some water, have your coffee, " +
+    "put on a good song and stop overthinking " +
+    "things that haven't happened yet."
+
+},
+
+{
+
+    title:
+    "🏆 Achievement Unlocked",
+
+    emoji:
+    "🥳",
+
+    text:
+    "Achievement unlocked: " +
+    "You survived another morning! " +
+    "Now go collect today's remaining achievements."
+
+},
+
+{
+
+    title:
+    "🌈 Tiny Reminder",
+
+    emoji:
+    "🌈",
+
+    text:
+    "Not every day needs to be extraordinary. " +
+    "Sometimes a peaceful, normal and happy day " +
+    "is more than enough."
+
+},
+
+{
+
+    title:
+    "🎉 Final Warning",
+
+    emoji:
+    "😄",
+
+    text:
+    "Warning: Excessive smiling may occur today. " +
+    "Proceed with your day at your own risk."
+
+}
+
+];
+
+
+/* ==========================================
+   SURPRISE BUTTON
+========================================== */
+
+function surpriseMe() {
+
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "surpriseOverlay";
+
+
+    overlay.innerHTML = `
+
+        <div class="loadingEmoji">
+
+            🎁
+
+        </div>
+
+        <div class="loadingText">
+
+            Preparing your surprise...
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        overlay
+    );
+
+
+    createFloatingEmojis();
+
+
+    setTimeout(() => {
+
+        overlay.remove();
+
+        showSurpriseResult();
+
+    }, 1200);
+
+}
+
+
+/* ==========================================
+   SHOW SURPRISE
+========================================== */
+
+function showSurpriseResult() {
+
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            surprises.length
+        );
+
+
+    const surprise =
+        surprises[randomIndex];
+
+
+    const card =
+        document.querySelector(
+            ".card"
+        );
+
+
+    document.getElementById(
+        "message"
+    ).innerHTML = `
+
+        <div class="surpriseResult">
+
+            <div class="bigSurpriseEmoji">
+
+                ${surprise.emoji}
+
+            </div>
+
+
+            <div class="surpriseTitle">
+
+                ${surprise.title}
+
+            </div>
+
+
+            <div class="surpriseText">
+
+                ${surprise.text}
+
+            </div>
+
+
+            <button
+                class="anotherButton"
+                onclick="showSurpriseResult()">
+
+                🎲 Another Surprise
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    createFloatingEmojis();
+
+
+    card.classList.remove(
+        "surprisePop"
+    );
+
+
+    void card.offsetWidth;
+
+
+    card.classList.add(
+        "surprisePop"
+    );
+
+}
+
+
+/* ==========================================
+   FLOATING EMOJIS
+========================================== */
+
+function createFloatingEmojis() {
+
+
+    const emojis = [
+
+        "✨",
+        "🌸",
+        "☀️",
+        "🌻",
+        "⭐",
+        "🎉",
+        "🌈",
+        "🍀",
+        "🎈",
+        "🥳"
+
+    ];
+
+
+    for(let i = 0; i < 20; i++) {
+
+
+        const emoji =
+            document.createElement(
+                "div"
+            );
+
+
+        emoji.className =
+            "floatingEmoji";
+
+
+        emoji.innerText =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+
+        emoji.style.left =
+            Math.random() *
+            100 +
+            "vw";
+
+
+        emoji.style.bottom =
+            "-30px";
+
+
+        emoji.style.animationDuration =
+            (2 + Math.random() * 3) +
+            "s";
+
+
+        document.body.appendChild(
+            emoji
+        );
+
+
+        setTimeout(() => {
+
+            emoji.remove();
+
+        }, 5000);
+
+    }
+
+}
+
+
+/* ==========================================
+   BOLLYWOOD MORNING SONGS
+========================================== */
+
+/*
+   Put your legally obtained audio files
+   inside a folder called "music".
+
+   Folder structure:
+
+   GoodMorning/
+       index.html
+       music/
+           ilahi.mp3
+           khaabon-ke-parinday.mp3
+           love-you-zindagi.mp3
+           aao-milo-chalo.mp3
+           safarnama.mp3
+           patakha-guddi.mp3
+           yun-hi-chala-chal.mp3
+*/
+
+const songs = [
+
+{
+
+    name:
+    "☀️ Ilahi – Yeh Jawaani Hai Deewani",
+
+    file:
+    "music/ilahi.mp3"
+
+},
+
+{
+
+    name:
+    "☀️ Love You Zindagi – Dear Zindagi",
+
+    file:
+    "love-you-zindagi.mp3"
+
+},
+
+{
+
+    name:
+    "✨ Safarnama – Tamasha",
+
+    file:
+    "safarnama.mp3"
+
+}
+
+];
+
+
+let songTimer;
+
+
+/* ==========================================
+   PLAY RANDOM SONG
+========================================== */
+
+function playRandomSong() {
+
+
+    const song =
+        songs[
+            Math.floor(
+                Math.random() *
+                songs.length
+            )
+        ];
+
+
+    const audio =
+        document.getElementById(
+            "audioPlayer"
+        );
+
+
+    const player =
+        document.getElementById(
+            "musicPlayer"
+        );
+
+
+    const songName =
+        document.getElementById(
+            "songName"
+        );
+
+
+    audio.pause();
+
+    audio.currentTime = 0;
+
+    clearInterval(songTimer);
+
+
+    songName.innerText =
+        "🎵 " + song.name;
+
+
+    audio.src =
+        song.file;
+
+
+    player.style.display =
+        "block";
+
+
+    audio.load();
+
+
+    audio.play()
+        .then(() => {
+
+            start15SecondTimer();
+
+        })
+        .catch(() => {
+
+            document.getElementById(
+                "timer"
+            ).innerText =
+                "▶️ Press Play to start the song.";
+
+        });
+
+
+    player.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "center"
+
+    });
+
+}
+
+
+/* ==========================================
+   15 SECOND MUSIC TIMER
+========================================== */
+
+function start15SecondTimer() {
+
+
+    clearInterval(songTimer);
+
+
+    let seconds = 15;
+
+
+    const audio =
+        document.getElementById(
+            "audioPlayer"
+        );
+
+
+    const timer =
+        document.getElementById(
+            "timer"
+        );
+
+
+    timer.innerText =
+        "🎵 Playing... 15 sec";
+
+
+    songTimer =
+        setInterval(() => {
+
+
+            seconds--;
+
+
+            timer.innerText =
+                "🎵 Playing... " +
+                seconds +
+                " sec";
+
+
+            if(seconds <= 0) {
+
+
+                clearInterval(
+                    songTimer
+                );
+
+
+                audio.pause();
+
+                audio.currentTime = 0;
+
+
+                timer.innerText =
+                    "✨ Morning music complete!";
+
+            }
+
+
+        }, 1000);
+
+}
+
+
+/* ==========================================
+   MANUAL PLAY
+========================================== */
+
+document
+    .getElementById(
+        "audioPlayer"
+    )
+    .addEventListener(
+        "play",
+        function() {
+
+            clearInterval(
+                songTimer
+            );
+
+            start15SecondTimer();
+
+        }
+    );
+
+
+/* ==========================================
+   SONG ENDED
+========================================== */
+
+document
+    .getElementById(
+        "audioPlayer"
+    )
+    .addEventListener(
+        "ended",
+        function() {
+
+            clearInterval(
+                songTimer
+            );
+
+
+            document.getElementById(
+                "timer"
+            ).innerText =
+                "✨ Song finished!";
+
+        }
+    );
+
+
+/* ==========================================
+   MOOD RESPONSES
+========================================== */
+
+const moodResponses = {
+
+
+happy: {
+
+    emoji:
+    "😊☀️",
+
+    message:
+    "That's the energy I wanted to see! Keep that smile going and make the most of today! ✨",
+
+    wish:
+    "Keep that positive energy going throughout the day! 🌻"
+
+},
+
+
+sad: {
+
+    emoji:
+    "😔🌸",
+
+    message:
+    "Hey, it's okay to have a difficult morning. Take a deep breath and give yourself some time. Things can get better. ☀️",
+
+    wish:
+    "One difficult moment doesn't have to decide how the whole day goes. You've got this! 🌷"
+
+},
+
+
+excited: {
+
+    emoji:
+    "🤩🚀",
+
+    message:
+    "Now that's the mood! Something exciting might be waiting for you today. Go make it happen! ✨",
+
+    wish:
+    "Keep that energy high and make today a memorable one! 🎉"
+
+},
+
+
+boring: {
+
+    emoji:
+    "🥱➡️😎",
+
+    message:
+    "Boring morning? Not anymore! 😎 Add some music, good food and a little fun to your day!",
+
+    wish:
+    "Let's turn this boring day into a surprisingly good one! 🎈"
+
+},
+
+
+tired: {
+
+    emoji:
+    "😴☕",
+
+    message:
+    "Slow morning? That's completely fine. Grab some water, have your coffee ☕ and take it easy for a while.",
+
+    wish:
+    "No need to rush. Take your time and let the day begin at your own pace. 🌤️"
+
+}
+
+};
+
+
+/* ==========================================
+   SHOW MOOD BOX
+========================================== */
+
+function showMoodBox() {
+
+
+    const box =
+        document.getElementById(
+            "moodBox"
+        );
+
+
+    if(
+        box.style.display ===
+        "block"
+    ) {
+
+
+        box.style.display =
+            "none";
+
+
+    } else {
+
+
+        box.style.display =
+            "block";
+
+
+        box.scrollIntoView({
+
+            behavior:
+                "smooth",
+
+            block:
+                "center"
+
+        });
+
+    }
+
+}
+
+
+/* ==========================================
+   SELECT MOOD
+========================================== */
+
+function selectMood(mood) {
+
+
+    const data =
+        moodResponses[mood];
+
+
+    document.body.className =
+        mood;
+
+
+    document.getElementById(
+        "moodResult"
+    ).innerHTML = `
+
+        <span class="moodEmoji">
+
+            ${data.emoji}
+
+        </span>
+
+
+        ${data.message}
+
+
+        <br><br>
+
+
+        <small>
+
+            ${data.wish}
+
+        </small>
+
+    `;
+
+
+    document.getElementById(
+        "message"
+    ).innerText =
+        data.wish;
+
+
+    createFloatingEmojis();
+
+}
+
+
+/* ==========================================
+   INITIAL MESSAGE
+========================================== */
+
+document.getElementById(
+    "message"
+).innerText =
+
+"Good morning! ☀️ I hope your morning starts with a smile and your day turns out better than expected. Have an awesome day! 🌻";
+
+</script>
+
+</body>
+
+</html>
