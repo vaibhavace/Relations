@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Good Morning 🌅</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #fff3c4,
+        #ffd6a5,
+        #ffb4a2
+    );
+    color: #4a2815;
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+
+    background: #ffd43b;
+
+    border-radius: 50%;
+
+    top: 8%;
+    right: 10%;
+
+    box-shadow: 0 0 80px #ffb703;
+
+    opacity: .8;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.small {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(60px, 12vw, 120px);
+    font-family: cursive;
+    color: #6b3216;
+    line-height: .95;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin: 25px 0;
+}
+
+.card {
+
+    background: rgba(255,255,255,.75);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(100,50,0,.15);
+}
+
+.message {
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    min-height: 80px;
+
+}
+
+button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 15px 25px;
+
+    margin: 10px 5px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+.surprise {
+
+    background: #ff7b54;
+    color: white;
+}
+
+.song {
+
+    background: #6c63ff;
+    color: white;
+}
+
+.mood {
+
+    background: #ff4d8d;
+    color: white;
+}
+
+.whatsapp {
+
+    background: #25D366;
+    color: white;
+}
+
+#songName {
+
+    margin-top: 10px;
+
+    font-size: 15px;
+
+    opacity: .8;
+}
+
+#timer {
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #6c63ff;
+}
+
+.quote {
+
+    margin-top: 30px;
+
+    font-style: italic;
+
+    font-size: 18px;
+}
+
+
+/* -----------------------
+   MOOD BOX
+----------------------- */
+
+.moodBox {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.85);
+
+    animation: pop .4s ease;
+}
+
+.moodBox h2 {
+
+    margin-bottom: 15px;
+
+    color: #6b3216;
+}
+
+.moodButtons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.moodButtons button {
+
+    background: #fff;
+
+    color: #4a2815;
+
+    border: 2px solid #ffd6a5;
+
+    font-size: 15px;
+
+    padding: 12px 18px;
+}
+
+.moodResult {
+
+    margin-top: 20px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+}
+
+.moodEmoji {
+
+    font-size: 60px;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    animation: bounce .8s infinite alternate;
+}
+
+
+/* -----------------------
+   FLOATING EMOJIS
+----------------------- */
+
+.heart {
+
+    position: fixed;
+
+    font-size: 25px;
+
+    animation:
+        floatUp 3s linear forwards;
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+@keyframes floatUp {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(-100vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes pop {
+
+    from {
+
+        transform: scale(.7);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+
+    from {
+
+        transform: translateY(0);
+    }
+
+    to {
+
+        transform: translateY(-10px);
+    }
+}
+
+
+/* -----------------------
+   MOOD BACKGROUND EFFECT
+----------------------- */
+
+body.happy {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff3c4,
+            #ffe082,
+            #ffb4a2
+        );
+}
+
+body.sad {
+
+    background:
+        linear-gradient(
+            180deg,
+            #dbeafe,
+            #bfdbfe,
+            #c4b5fd
+        );
+}
+
+body.excited {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fde68a,
+            #fb7185,
+            #f472b6
+        );
+}
+
+body.boring {
+
+    background:
+        linear-gradient(
+            180deg,
+            #e5e7eb,
+            #d1d5db,
+            #f3f4f6
+        );
+}
+
+body.tired {
+
+    background:
+        linear-gradient(
+            180deg,
+            #ddd6fe,
+            #c4b5fd,
+            #a5b4fc
+        );
+}
+
+body.romantic {
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe4e6,
+            #fecdd3,
+            #fda4af
+        );
+}
+
+
+footer {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    opacity: .7;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px) {
+
+    .small {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+
+    button {
+        width: 90%;
+    }
+
+    .sun {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<section class="hero">
+
+<div class="sun"></div>
+
+<div class="content">
+
+<div class="small">
+☀️ A LITTLE MORNING MAGIC FOR YOU
+</div>
+
+<h1>
+Good<br>
+Morning! 🌅
+</h1>
+
+<p class="subtitle">
+
+New day. New energy.
+New reasons to smile. ✨
+
+</p>
+
+
+<div class="card">
+
+<div class="message" id="message">
+
+I hope your morning starts with a smile
+and your entire day gives you reasons
+to keep it. ❤️
+
+</div>
+
+
+<!-- SURPRISE -->
+
+<button
+class="surprise"
+onclick="surpriseMe()">
+
+🎁 Surprise Me
+
+</button>
+
+
+<!-- SONG -->
+
+<button
+class="song"
+onclick="playRandomSong()">
+
+🎵 Play Bollywood Song
+
+</button>
+
+
+<!-- MOOD -->
+
+<button
+class="mood"
+onclick="showMoodBox()">
+
+😊 How's Your Mood?
+
+</button>
+
+
+<!-- WHATSAPP -->
+
+<button
+class="whatsapp"
+onclick="sendWish()">
+
+💌 Send This Wish
+
+</button>
+
+
+<div id="songName">
+
+🎶 No song playing
+
+</div>
+
+<div id="timer"></div>
+
+
+<!-- MOOD BOX -->
+
+<div
+class="moodBox"
+id="moodBox">
+
+<h2>
+
+💭 Tell me...
+How's your mood today?
+
+</h2>
+
+
+<div class="moodButtons">
+
+<button onclick="selectMood('happy')">
+😊 Happy
+</button>
+
+<button onclick="selectMood('sad')">
+😔 Sad
+</button>
+
+<button onclick="selectMood('excited')">
+🤩 Excited
+</button>
+
+<button onclick="selectMood('boring')">
+🥱 Boring
+</button>
+
+<button onclick="selectMood('tired')">
+😴 Tired
+</button>
+
+<button onclick="selectMood('romantic')">
+🥰 Romantic
+</button>
+
+</div>
+
+
+<div
+class="moodResult"
+id="moodResult">
+
+</div>
+
+</div>
+
+
+<div class="quote">
+
+"Every morning is another chance
+to make something beautiful happen." 🌻
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+Made to make someone's morning
+a little brighter ☀️
+
+</footer>
+
+</section>
+
+
+<script>
+
+
+/* =================================
+   GOOD MORNING MESSAGES
+================================= */
+
+const messages = [
+
+"Good morning, sunshine! ☀️ I hope today brings you unexpected reasons to smile.",
+
+"Rise and shine! 🌅 Someone out there is hoping your day is as beautiful as your smile. 😊",
+
+"Good morning! 🌸 May your coffee be strong, your mood be happy, and your day be amazing!",
+
+"Here's your little reminder: you are someone's favourite reason to smile. Good morning! ❤️",
+
+"Wake up! ☀️ Today has something beautiful waiting for you. Go find it! ✨",
+
+"Good morning! 💕 Sending you a little happiness to start your day.",
+
+"May your morning be peaceful, your afternoon productive and your evening unforgettable. 🌷",
+
+"Good morning, beautiful soul! 🌻 Don't forget to smile today.",
+
+"Today's mission: Smile more, worry less and enjoy every little moment. ❤️",
+
+"Good morning! 🌅 If nobody has told you yet — you're going to have an amazing day!"
+];
+
+
+/* =================================
+   SURPRISE BUTTON
+================================= */
+
+function surpriseMe() {
+
+    const randomIndex =
+        Math.floor(
+            Math.random() * messages.length
+        );
+
+    document.getElementById("message")
+        .innerText =
+        messages[randomIndex];
+
+    createFloatingEmojis();
+
+}
+
+
+/* =================================
+   FLOATING EMOJIS
+================================= */
+
+function createFloatingEmojis() {
+
+    const emojis = [
+        "✨",
+        "🌸",
+        "☀️",
+        "❤️",
+        "🌻",
+        "💕"
+    ];
+
+    for(let i = 0; i < 20; i++) {
+
+        const emoji =
+            document.createElement("div");
+
+        emoji.className = "heart";
+
+        emoji.innerText =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+        emoji.style.left =
+            Math.random() * 100 + "vw";
+
+        emoji.style.bottom = "-30px";
+
+        emoji.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+
+            emoji.remove();
+
+        }, 5000);
+    }
+}
+
+
+/* =================================
+   BOLLYWOOD SONGS
+================================= */
+
+const songs = [
+
+{
+    name: "🎵 Ilahi – Yeh Jawaani Hai Deewani",
+    search:
+    "Ilahi Yeh Jawaani Hai Deewani official song"
+},
+
+{
+    name: "🌅 Khaabon Ke Parinday – Zindagi Na Milegi Dobara",
+    search:
+    "Khaabon Ke Parinday official song"
+},
+
+{
+    name: "☀️ Love You Zindagi – Dear Zindagi",
+    search:
+    "Love You Zindagi official song Dear Zindagi"
+},
+
+{
+    name: "🌸 Aao Milo Chalo – Jab We Met",
+    search:
+    "Aao Milo Chalo Jab We Met official song"
+},
+
+{
+    name: "✨ Safarnama – Tamasha",
+    search:
+    "Safarnama Tamasha official song"
+},
+
+{
+    name: "💛 Patakha Guddi – Highway",
+    search:
+    "Patakha Guddi Highway official song"
+},
+
+{
+    name: "🌻 Yun Hi Chala Chal – Swades",
+    search:
+    "Yun Hi Chala Chal Swades official song"
+}
+
+];
+
+
+let songTimer;
+
+
+/* =================================
+   RANDOM BOLLYWOOD SONG
+================================= */
+
+function playRandomSong() {
+
+    const song =
+        songs[
+            Math.floor(
+                Math.random() * songs.length
+            )
+        ];
+
+
+    document.getElementById("songName")
+        .innerText =
+        "🎵 " + song.name;
+
+
+    /*
+       Open the song on YouTube.
+
+       The timer below runs for 30 seconds
+       to create the morning-song experience.
+    */
+
+    const youtubeURL =
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(song.search);
+
+
+    window.open(
+        youtubeURL,
+        "_blank"
+    );
+
+
+    startSongTimer();
+
+}
+
+
+/* =================================
+   30 SECOND TIMER
+================================= */
+
+function startSongTimer() {
+
+    clearInterval(songTimer);
+
+    let seconds = 30;
+
+    document.getElementById("timer")
+        .innerText =
+        "⏱️ Morning music time: 30 sec";
+
+
+    songTimer =
+        setInterval(() => {
+
+            seconds--;
+
+            document.getElementById("timer")
+                .innerText =
+                "⏱️ Morning music time: " +
+                seconds +
+                " sec";
+
+
+            if(seconds <= 0) {
+
+                clearInterval(songTimer);
+
+                document.getElementById("timer")
+                    .innerText =
+                    "✨ Hope that made your morning better!";
+
+            }
+
+        }, 1000);
+
+}
+
+
+/* =================================
+   MOOD BOX
+================================= */
+
+function showMoodBox() {
+
+    const box =
+        document.getElementById("moodBox");
+
+    if(box.style.display === "block") {
+
+        box.style.display = "none";
+
+    } else {
+
+        box.style.display = "block";
+
+        box.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+}
+
+
+/* =================================
+   MOOD RESPONSES
+================================= */
+
+const moodResponses = {
+
+happy: {
+
+emoji: "😊☀️",
+
+message:
+"That's the energy I wanted to see! Keep that smile going — today deserves your happiest version! ✨",
+
+wish:
+"Keep smiling! Your happiness is contagious. ❤️"
+
+},
+
+sad: {
+
+emoji: "🥺🌸",
+
+message:
+"Hey... it's okay to have a difficult morning. Take a deep breath. Today doesn't have to be perfect. I'm sending you a little sunshine. ☀️❤️",
+
+wish:
+"One bad moment doesn't mean a bad day. You've got this. 🌷"
+
+},
+
+excited: {
+
+emoji: "🤩🔥",
+
+message:
+"Now THAT'S the mood! 🚀 Something exciting is waiting for you today. Go make it happen! ✨",
+
+wish:
+"Keep that energy high and make today unforgettable! 🔥"
+
+},
+
+boring: {
+
+emoji: "🥱➡️😎",
+
+message:
+"Boring morning? Not anymore! 😎 Consider this your official permission to add a little madness to today! 🎉",
+
+wish:
+"Let's turn this boring day into a memorable one! 🎈"
+
+},
+
+tired: {
+
+emoji: "😴☕",
+
+message:
+"Slow morning? That's completely fine. Have some water, grab your coffee ☕ and give yourself a little time. ❤️",
+
+wish:
+"You don't have to rush. Take it easy and let the day unfold. 🌤️"
+
+},
+
+romantic: {
+
+emoji: "🥰❤️",
+
+message:
+"Ohooo... someone woke up in a romantic mood! 😏❤️ Maybe today needs a little extra sweetness.",
+
+wish:
+"Sending you a little extra love this morning. 💕🌹"
+
+}
+
+};
+
+
+/* =================================
+   SELECT MOOD
+================================= */
+
+function selectMood(mood) {
+
+    const data =
+        moodResponses[mood];
+
+
+    document.body.className = mood;
+
+
+    document.getElementById("moodResult")
+        .innerHTML =
+
+        `<span class="moodEmoji">
+            ${data.emoji}
+        </span>
+
+        ${data.message}
+
+        <br><br>
+
+        <small>
+            ${data.wish}
+        </small>`;
+
+
+    document.getElementById("message")
+        .innerText =
+        data.wish;
+
+
+    createFloatingEmojis();
+
+}
+
+
+/* =================================
+   WHATSAPP SHARE
+================================= */
+
+function sendWish() {
+
+    const message =
+        document.getElementById("message")
+            .innerText;
+
+
+    const url =
+        "https://wa.me/?text=" +
+
+        encodeURIComponent(
+
+            "☀️ Good Morning ❤️\n\n" +
+
+            message +
+
+            "\n\n🌻 Have a beautiful day!"
+
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
